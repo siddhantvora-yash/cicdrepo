@@ -3,7 +3,40 @@ module.exports = function(config) {
 
 	config.set({
         frameworks: ["ui5"],
-		
-        browsers: ["Chrome"]
+		ui5: {
+			url: "https://sapui5.hana.ondemand.com"
+		},
+		preprocessors: {
+			"{webapp,webapp/!(test)}/!(mock*).js": ["coverage"]
+		},
+		coverageReporter: {
+			includeAllSources: true,
+			reporters: [
+				{
+					type: "html",
+					dir: "coverage"
+				},
+				{
+					type: "text"
+				}
+			],
+			check: {
+				each: {
+					statements: 100,
+					branches: 100,
+					functions: 100,
+					lines: 100
+				}
+			}
+		},
+		reporters: ["progress", "coverage"],
+
+        browsers: ["Chrome"],
+        
+        browserConsoleLogOptions: {
+			level: "error"
+        },
+
+		singleRun: false
 	});
 };
