@@ -18,7 +18,7 @@
     "build": "npm run clean && ui5 build --include-task=generateManifestBundle generateCachebusterInfo && npm run zip",
     "zip": "cd dist && npx bestzip ../cicdhtml-content.zip *",
     "clean": "npx rimraf cicdhtml-content.zip dist",
-    "test": "karma start karma-ci.conf.js && karma start karma.conf.js"
+    "test": "karma start karma-ci.conf.js"
   },
   "ui5": {
     "dependencies": [
